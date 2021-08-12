@@ -22,13 +22,13 @@ def dva_poisk(array, element, left, right):
         return right #останавливаем поиск
 
     middle = (right + left) // 2  # находим середину
-    if array[middle] == element:  # если элемент равен среднему,
-        return (middle-1)  # возвращаем этот индекс-1
-    elif element < array[middle]:  # если элемент меньше элемента в середине
-        # рекурсивно ищем в левой половине
-        return dva_poisk(array, element, left, middle - 1)
-    else:  # иначе в правой
+    #if array[middle] == element:  # если элемент равен среднему,
+    #    return (middle-1)  # возвращаем этот индекс-1
+    if element > array[middle]:  # если элемент больше элемента в середине
+        # рекурсивно ищем в правой половине
         return dva_poisk(array, element, middle + 1, right)
+    else:  # иначе в левой
+        return dva_poisk(array, element, left, middle - 1)
 
 vyhod = True
 while vyhod:
